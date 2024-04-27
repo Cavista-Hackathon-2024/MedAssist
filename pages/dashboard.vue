@@ -1,7 +1,8 @@
 <template>
     <div id="container">
         <Sidebar></Sidebar>
-        <MainDashboard></MainDashboard>
+        <ClinicalAi></ClinicalAi>
+        <!-- <MainDashboard></MainDashboard> -->
         <RightSidebar></RightSidebar>
     </div>
 </template>

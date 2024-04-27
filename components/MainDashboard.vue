@@ -42,6 +42,9 @@
         <Button label="See Patient Info" outlined  />
       </div>
     </div>
+
+    <PatientList></PatientList>
+
   </div>
 </template>
 
@@ -87,10 +90,11 @@ const { view } = storeToRefs(store);
 }
 
 #ai-summary {
-  margin-top: 40px;
+  margin-top: 70px;
   background: #f5f5f5;
   padding: 20px;
   border-radius: 20px;
+  max-width: 800px;
   h2 {
     //text-align: center;
     padding-bottom: 20px;
@@ -103,6 +107,7 @@ const { view } = storeToRefs(store);
   }
 
   .timeline {
+    max-width: 800px;
     margin-top: 10px;
     p {
       margin-top: 5px;
