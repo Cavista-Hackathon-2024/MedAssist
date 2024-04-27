@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  css: ["@/assets/css/main.less"],
+  css: ["@/assets/css/main.less", "primevue/resources/themes/aura-light-green/theme.css"],
   vite: {
     css: {
       preprocessorOptions: {
@@ -35,5 +35,8 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["nuxt-primevue"],
+  modules: ["nuxt-primevue", "@pinia/nuxt"],
+  pinia: {
+    storesDirs: ['./stores/**',],
+  },
 });
