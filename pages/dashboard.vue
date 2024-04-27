@@ -3,7 +3,6 @@
         <Sidebar></Sidebar>
         <ClinicalAi></ClinicalAi>
         <!-- <MainDashboard></MainDashboard> -->
-        <RightSidebar></RightSidebar>
     </div>
 </template>
 
@@ -15,7 +14,7 @@
 #container {
     width: 100%;
     display: grid;
-    grid-template-columns: 380px 1fr auto;
+    grid-template-columns: 380px 1fr;
     position: fixed;
 }
 </style>

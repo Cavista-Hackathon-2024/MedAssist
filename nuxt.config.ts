@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   devtools: { enabled: false },
   typescript: {
     shim: false,
@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { href: "https://cdn.jsdelivr.net/npm/showdown@<version>/dist/showdown.min.js" },
         {
           rel: "preconnect",
           href: "https://fonts.gstatic.com",
