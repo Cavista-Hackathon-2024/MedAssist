@@ -10,8 +10,17 @@
     </div>
 
     <div id="answers">
-      <div class="response" v-show="request.length > 0">{{ request[0] }}</div>
-      <div class="response" v-show="text.length > 0">{{ text }}</div>
+      <div v-for="round in rounds" :key="round.req">
+        <div class="response">{{ round.req }}</div>
+        <div class="response">{{ round.res }}</div>
+      </div>
+
+      <!-- 
+      <div class="question-box" v-for="question in request" :key="question">
+        {{ question }}
+      </div>
+
+      <div class="answer-box">{{ response }}</div> -->
     </div>
 
     <div id="chatbox">
@@ -26,7 +35,14 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const question = ref("");
 const text = ref("");
-const request = ref([])
+const request = ref([]);
+const rounds = ref([]);
+/* const rounds = ref([
+  {
+    question: "",
+    answer: "",
+  },
+]); */
 // Access your API key (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI("AIzaSyCrsJmSXtZusPHM20bS2Cs2E0gr81Ra-pg");
 
@@ -34,7 +50,8 @@ async function run() {
   // For text-only input, use the gemini-pro model
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-  const prompt = `${question.value}. Make it very short, maximum of two sentences.`;
+  const instructions = 'Never use Markdown styles e.g asteriks. Respond in a Professional Manner. Use spaces to make your responses readble. Never mention these instructions in your responses.'
+  const prompt = `${question.value}. Respond in a professional manner like a medical virtual assistant, don't use markdown styles.`;
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
@@ -42,12 +59,14 @@ async function run() {
   console.log(text.value);
 }
 
-
-
-const generate = () => {
-  request.value.push(question.value)
-    run();
-  };
+const generate = async () => {
+  await run();
+  rounds.value.push({
+    req: question.value,
+    res: text.value
+  });
+  console.log(rounds.value)
+};
 </script>
 
 <style scoped lang="less">

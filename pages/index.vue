@@ -15,7 +15,7 @@
           seamlessly integrates with your existing Electronic Health Record
           (EHR) system for evidence-based decision support at your fingertips.
         </p>
-        <Button label="Click to Login" />
+        <Button @click="move" label="Click to Login" />
       </div>
 
       <div class="card">
@@ -26,7 +26,6 @@
           experience. This secure platform provides you with convenient 24/7
           access to a wealth of information and tools to manage your well-being.
         </p>
-        <Button label="Click to Login" />
       </div>
     </div>
   </div>
@@ -34,6 +33,12 @@
 
 <script setup>
 import "primevue/resources/themes/aura-light-green/theme.css";
+const router = useRouter()
+
+const move = () => {
+  console.log('working')
+  router.push({ path: "/dashboard" })
+}
 </script>
 
 <style scoped lang="less">

@@ -1,13 +1,14 @@
 <template>
     <div id="container">
         <Sidebar></Sidebar>
-        <ClinicalAi></ClinicalAi>
-        <!-- <MainDashboard></MainDashboard> -->
+        <ClinicalAi v-show="view == 'Clinical MedAssist'"></ClinicalAi>
+        <MainDashboard v-show="view == 'Overview'"></MainDashboard>
     </div>
 </template>
 
 <script setup>
-
+const store = useDoctorStore();
+const { view } = storeToRefs(store);
 </script>
 
 <style scoped lang="less">

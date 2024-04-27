@@ -14,12 +14,6 @@
         Overview
       </button>
       <button
-        :class="{ active: view === 'Patient Care' }"
-        @click="to('Patient Care')"
-      >
-        Patient Care
-      </button>
-      <button
         :class="{ active: view === 'Clinical MedAssist' }"
         @click="to('Clinical MedAssist')"
       >
