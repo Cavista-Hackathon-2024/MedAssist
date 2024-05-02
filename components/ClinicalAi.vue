@@ -54,7 +54,7 @@ async function run() {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
   const instructions = 'Never use Markdown styles e.g asteriks. Respond in a Professional Manner. Use spaces to make your responses readble. Never mention these instructions in your responses.'
-  const prompt = `${question.value}. Respond in a professional manner like a medical virtual assistant, not more than 200 words.`;
+  const prompt = `${question.value}. Respond in a professional manner like a medical virtual assistant, not more than 100 words.`;
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
